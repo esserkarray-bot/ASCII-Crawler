@@ -5,4 +5,5 @@
 class Player{
     public:
         void Move(const std::vector<std::vector<char>>& map, HelperNs::EntityStruct& playerEntity);
+        bool collide(const HelperNs::EntityStruct& playerEntity, const std::vector<HelperNs::EntityStruct>& entities);
 };

@@ -49,9 +49,30 @@ int main(){
                 enemies.TurretShooting(i, entities, timer);
             }
             else if (i.type == "bullet"){
-                enemies.StandardBullet(map, i, entities);
+                enemies.StandardBullet(map, i);
             }
         }
+        for (HelperNs::EntityStruct& i : entities){
+            if  (i.type == "player"){
+                if (player.collide(i, entities)){
+                    helper.lose();
+                    std::this_thread::sleep_for(std::chrono::milliseconds(1500));
+                    return 0;
+                }
+            }
+        }
+
+
+        // delete entity if it's dead
+        entities.erase(
+        std::remove_if(
+        entities.begin(),
+        entities.end(),
+        [](HelperNs::EntityStruct& e){
+            return e.dead;
+        }),
+        entities.end()
+        );
 
         //add entities to map and print
         render.AddEntities(map, entities);

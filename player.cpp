@@ -27,3 +27,14 @@ if (GetAsyncKeyState('S') & 0x8000){
     }
 }
 }
+
+bool Player::collide(const HelperNs::EntityStruct& playerEntity, const std::vector<HelperNs::EntityStruct>& entities){
+    std::vector<std::string> deadly_tags = {
+        "bullet",
+        "turret"
+    };
+    for (HelperNs::EntityStruct i : entities){
+        if (std::find(deadly_tags.begin(), deadly_tags.end(), i) == deadly_tags.end()) return false;
+        return true;
+    }
+}

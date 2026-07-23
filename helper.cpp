@@ -14,9 +14,19 @@ std::vector<HelperNs::EntityStruct> HelperCl::ToEntityStruct(const nlohmann::jso
             entity[1],
             entity[2].get<std::string>()[0],
             entity[3],
-            entity[4]
+            entity[4],
+            entity[5]
         );
     }
 
     return entities;
+}
+void lose(){
+    std::cout << 
+                 "__   __   ____   _    _    _____   _____   ______  \n"
+              << "\\ \\ / /  / __ \\ | |  | |  |  __ \\ |_   _| |  ____|\n"
+              << " \\ V /  | |  | || |  | |  | |  | |  | |   | |__   \n"
+              << "  | |   | |  | || |  | |  | |  | |  | |   |  __|  \n"
+              << "  | |   | |__| || |__| |  | |__| | _| |_  | |____ \n"
+              << "  |_|    \\____/  \\____/   |_____/ |_____| |______|\n";
 }
