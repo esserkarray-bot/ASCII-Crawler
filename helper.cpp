@@ -21,7 +21,8 @@ std::vector<HelperNs::EntityStruct> HelperCl::ToEntityStruct(const nlohmann::jso
 
     return entities;
 }
-void lose(){
+void HelperCl::lose(){
+    std::cout << "\033c";
     std::cout << 
                  "__   __   ____   _    _    _____   _____   ______  \n"
               << "\\ \\ / /  / __ \\ | |  | |  |  __ \\ |_   _| |  ____|\n"

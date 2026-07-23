@@ -33,8 +33,14 @@ bool Player::collide(const HelperNs::EntityStruct& playerEntity, const std::vect
         "bullet",
         "turret"
     };
-    for (HelperNs::EntityStruct i : entities){
-        if (std::find(deadly_tags.begin(), deadly_tags.end(), i) == deadly_tags.end()) return false;
-        return true;
+
+    for (const HelperNs::EntityStruct& i : entities){
+        if (std::find(deadly_tags.begin(), deadly_tags.end(), i.type) != deadly_tags.end()){
+            if (i.x == playerEntity.x && i.y == playerEntity.y){
+                return true;
+            }
+        }
     }
+
+    return false;
 }
