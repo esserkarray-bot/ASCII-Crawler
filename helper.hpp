@@ -3,21 +3,16 @@
 #include <string>
 #include "json.hpp"
 
-namespace HelperNs{
-    enum class Direction{
-        Right,
-        Down,
-        Left,
-        Up
-    };
-
-    struct EntityStruct
-    {
+namespace HelperNs {
+struct EntityStruct
+{
         int x;
         int y;
         char sprite;
-        Direction dir;
+        int dir;
         std::string type;
+        EntityStruct(int y, int x, char sprite, int dir, std::string type)
+            : y(y), x(x), sprite(sprite), dir(dir), type(type) {}
     };
 }
 

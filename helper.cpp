@@ -9,15 +9,13 @@ std::vector<HelperNs::EntityStruct> HelperCl::ToEntityStruct(const nlohmann::jso
 
     for (auto& entity : data)
     {
-        HelperNs::EntityStruct e;
-
-        e.y = entity[0];
-        e.x = entity[1];
-        e.sprite = entity[2].get<std::string>()[0];
-        e.dir = entity[3];
-        e.type = entity[4];
-
-        entities.push_back(e);
+        entities.emplace_back(
+            entity[0],
+            entity[1],
+            entity[2].get<std::string>()[0],
+            entity[3],
+            entity[4]
+        );
     }
 
     return entities;

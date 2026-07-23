@@ -2,6 +2,7 @@
 #include "renderer.hpp"
 #include "helper.hpp"
 #include "player.hpp"
+#include "enemies.hpp"
 #include <fstream>
 #include <vector>
 #include <thread>
@@ -18,10 +19,12 @@ int main(){
     f >> file;
 
     int current_level = 0;
+    int timer = 0;
 
     Renderer render;
     HelperCl helper;
     Player player;
+    Enemies enemies;
 
     //convert leveldata into matrix
     std::vector<std::vector<char>> map = render.ToMatrix(file["levels"][current_level]["data"]);
@@ -31,6 +34,9 @@ int main(){
     std::vector<HelperNs::EntityStruct> entities = helper.ToEntityStruct(file["levels"][current_level]["entities"]);
 
     while (! (GetAsyncKeyState(VK_ESCAPE) & 0x8000)){
+        //add to the timer
+        timer++;
+
         //reset map
         map = default_map;
 
@@ -39,6 +45,12 @@ int main(){
             if  (i.type == "player"){
                 player.Move(map, i);
             } 
+            else if (i.type == "turret"){
+                enemies.TurretShooting(i, entities, timer);
+            }
+            else if (i.type == "bullet"){
+                enemies.StandardBullet(map, i, entities);
+            }
         }
 
         //add entities to map and print
