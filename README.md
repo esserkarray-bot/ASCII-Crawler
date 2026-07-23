@@ -20,4 +20,4 @@
 - ASCII renderer
 - Entity system
 - Player movement
-- Turrets (WIP)
+- Turrets (NEW)
