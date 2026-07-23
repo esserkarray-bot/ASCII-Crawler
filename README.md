@@ -11,11 +11,11 @@
 
  Note: This is a personal learning project. I am not currently accepting pull requests or fixes.
 
- CONTROLS:
+ ## CONTROLS:
  WASD to move.
  more will be added.
 
- ## Features
+ ## Features:
 - JSON-based level loading
 - ASCII renderer
 - Entity system
