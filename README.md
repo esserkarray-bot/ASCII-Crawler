@@ -12,8 +12,8 @@
  Note: This is a personal learning project. I am not currently accepting pull requests or fixes.
 
  ## CONTROLS:
- WASD to move.
- more will be added.
+-WASD to move.
+-more will be added.
 
  ## Features:
 - JSON-based level loading
